@@ -40,7 +40,7 @@ if (my $config_json = $store->get('infinitude.json')) { #migrate older format co
 		serial_tty => '/dev/ttyUSB0',  #RS485 serial tty interface
 		serial_socket => '127.0.0.1:23',  #RS485 socket relay
 		app_secret => 'Pogotudinal',   #Mojolicious cookie signature
-		pass_reqs => 60*17             #Pass requests to Carrier webservice every 17 minutes (set to 0 to disable)
+		pass_reqs => 1             #Pass requests to Carrier webservice every 17 minutes (set to 0 to disable)
 	};
 	$config_file->spew(encode_json($config));
 }
@@ -68,6 +68,7 @@ hook before_dispatch => sub {
 	my $c = shift;
 
 	my $url = $c->req->url;
+#    say "url: $url";
 	if ($url->to_abs->host =~ /(bryant|carrier)/i) { # request from stat
 		my $nk = $url->path->to_string;
 		$nk =~ s/\//-/g;
@@ -79,16 +80,17 @@ hook before_dispatch => sub {
 			$store->set($nk, time, $config->{pass_reqs});
 			my $o_req = $c->req->clone;
 			my $o_url = Mojo::URL->new($o_req->url->to_abs->to_string);
-			$o_url->scheme('https');
+			$o_url->scheme('http');
+			#say "o_url: $o_url";
 			$o_req->url($o_url);
 
 			$c->app->log->debug("No cache for $nk. Make Carrier request");
 			$store->set("req-$nk.txt", $o_req->to_string);
-			#say "REQUEST:\n".$o_req->to_string."\n------------";
+			# say "REQUEST:\n".$o_req->to_string."\n------------";
 			my $ua = Mojo::UserAgent->new;
 			my $tx = $ua->start(Mojo::Transaction::HTTP->new(req=>$o_req));
 			$store->set("res-$nk.txt", $tx->res->to_string);
-			#say "RESPONSE:\n".$store->get("res-$nk.txt");
+			# say "RESPONSE:\n".$store->get("res-$nk.txt");
 			$c->stash->{pass_res} = $tx->res->body;
 			$store->set("$nk.xml", $tx->res->body)
 			  if ($tx->res->headers->content_type//'' =~ /xml/);
@@ -331,7 +333,7 @@ post '/systems/:system_id/status' => sub {
 	my $xml = XML::Simple::Minded->new({
 		status => {
 			 version => '1.37',
-			pingRate => [$changes eq 'true' ? 20 : 12],
+			pingRate => [$changes eq 'true' ? 10 : 6],
 			serverHasChanges => [$changes || 'false'],
 			configHasChanges => [$changes || 'false'],
 		}

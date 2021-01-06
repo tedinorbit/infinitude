@@ -1,12 +1,12 @@
 <system xmlns:atom="http://www.w3.org/2005/Atom">
-  <atom:link rel="self" href="http://www.api.myinfinity.carrier.com/systems/{id}"/>
-  <atom:link rel="http://www.api.myinfinity.carrier.com/rels/user" href="http://www.api.myinfinity.carrier.com/users/{id}"/>
-  <atom:link rel="http://www.api.myinfinity.carrier.com/rels/location" href="http://www.api.myinfinity.carrier.com/locations/{id}"/>
-  <atom:link rel="http://www.api.myinfinity.carrier.com/rels/notifications" href="http://www.api.myinfinity.carrier.com/systems/{id}/notifications"/>
-  <atom:link rel="http://www.api.myinfinity.carrier.com/rels/system_notification_prefs" href="http://www.api.myinfinity.carrier.com/systems/{id}/notification_prefs"/>
-  <atom:link rel="http://www.api.myinfinity.carrier.com/rels/status" href="http://www.api.myinfinity.carrier.com/systems/{id}/status"/>
+  <atom:link rel="self" href="http://www.api.eng.bryant.com/systems/{id}"/>
+  <atom:link rel="http://www.api.eng.bryant.com/rels/user" href="http://www.api.eng.bryant.com/users/{id}"/>
+  <atom:link rel="http://www.api.eng.bryant.com/rels/location" href="http://www.api.eng.bryant.com/locations/{id}"/>
+  <atom:link rel="http://www.api.eng.bryant.com/rels/notifications" href="http://www.api.eng.bryant.com/systems/{id}/notifications"/>
+  <atom:link rel="http://www.api.eng.bryant.com/rels/system_notification_prefs" href="http://www.api.eng.bryant.com/systems/{id}/notification_prefs"/>
+  <atom:link rel="http://www.api.eng.bryant.com/rels/status" href="http://www.api.eng.bryant.com/systems/{id}/status"/>
   <dealer>
-    <atom:link rel="self" href="http://www.api.myinfinity.carrier.com/dealers/{id}"/>
+    <atom:link rel="self" href="http://www.api.eng.bryant.com/dealers/{id}"/>
     <pid></pid>
     <name>Bryant Customer Relations</name>
     <first>First</first>
@@ -23,7 +23,7 @@
     <email>support@carrier.com</email>
   </dealer>
   <profile>
-    <atom:link rel="self" href="http://www.api.myinfinity.carrier.com/systems/{id}/profile"/>
+    <atom:link rel="self" href="http://www.api.eng.bryant.com/systems/{id}/profile"/>
     <name>System 1</name>
     <pin>12345</pin>
     <serial>PLACEHOLDER</serial>
@@ -36,7 +36,7 @@
     <firmware>PLACEHOLDER string</firmware>
   </profile>
   <config>
-    <atom:link rel="self" href="http://www.api.myinfinity.carrier.com/systems/{id}/config"/>
+    <atom:link rel="self" href="http://www.api.eng.bryant.com/systems/{id}/config"/>
     <mode>auto</mode>
     <cfgem>F</cfgem>
     <cfgauto>on</cfgauto>

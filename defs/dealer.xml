@@ -1,6 +1,6 @@
 <dealer version="1.3" xmlns:atom="http://www.w3.org/2005/Atom">
-  <atom:link rel="self" href="http://www.api.myinfinity.carrier.com/dealers/{id}"/>
-  <atom:link rel="http://www.api.ing.carrier.com/rels/dealer_notification_prefs" href="http://www.api.ing.carrier.com/dealers/{id}/notification_prefs"/>
+  <atom:link rel="self" href="http://www.api.eng.bryant.com/dealers/{id}"/>
+  <atom:link rel="http://www.api.eng.bryant.com/rels/dealer_notification_prefs" href="http://www.api.eng.bryant.com/dealers/{id}/notification_prefs"/>
   <pid></pid>
   <name>Carrier Corporation</name>
   <first></first>

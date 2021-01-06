@@ -1,5 +1,5 @@
 <status xmlns:atom="http://www.w3.org/2005/Atom">
-	<atom:link rel="self" href="http://www.api.myinfinity.carrier.com/systems/{id}/status"/>
+	<atom:link rel="self" href="http://www.api.eng.bryant.com/systems/{id}/status"/>
 	<timestamp>2012-09-25T20:52:09Z</timestamp>
 	<ping>60</ping><!--GET only-->
 	<serverHasChanges>true</serverHasChanges><!--GET only-->

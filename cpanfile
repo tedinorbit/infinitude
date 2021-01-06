@@ -6,5 +6,6 @@ requires 'Path::Tiny';
 requires 'JSON';
 requires 'Hash::AsObject';
 requires 'XML::Simple';
-
-suggests 'IO::Termios';
+requires 'Data::ParseBinary';
+requires 'IO::Termios';
+requires 'Mojo::Reactor';
