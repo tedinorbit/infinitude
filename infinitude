@@ -18,7 +18,7 @@ use XML::Simple::Minded;
 
 my $store = CHI->new(
     driver         => 'File',
-    root_dir       => 'state',
+    root_dir       => '/opt/infinitude/state',
     depth          => 0,
     max_key_length => 256,
     namespace      => ''
@@ -26,7 +26,7 @@ my $store = CHI->new(
 $store->set(started=>time);
 
 our $config;
-our $config_file = path("infinitude.json");
+our $config_file = path("/opt/infinitude/infinitude.json");
 
 if (my $config_json = $store->get('infinitude.json')) { #migrate older format config
 	$config_file->spew($config_json);
