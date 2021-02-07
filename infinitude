@@ -342,6 +342,7 @@ post '/systems/:system_id/status' => sub {
 	# if infinitude has no changes, and this is a carrier passthru request, return carrier's response
 	if (!$changes and $c->stash->{pass_res}) {
 	  $c->app->log->debug("********** Check Carrier/Bryant change flags ****************");
+	  say "***** Check Carrier Bryant change flags ***** ";
 	  $xml = XML::Simple::Minded->new($c->stash->{pass_res});
 	  $xml->status->pingRate([12]);
 	  $changes = $xml->status->serverHasChanges eq 'true' ? 1 : 0;
@@ -350,6 +351,7 @@ post '/systems/:system_id/status' => sub {
 
 	if ($changes) {
 	  $c->app->log->debug("********** There are changes. ****************");
+	  say "***** There are changes. *****";
 	  $store->set(changes=>'');
 	}
 	$c->render(text=>$xml, format=>'xml');
